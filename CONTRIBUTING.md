@@ -18,7 +18,7 @@ npm run build  # 打包 dist/youtube-resume-helper-<version>.zip
 - 註解說明「為什麼」，不重述程式碼在做什麼
 - UI 文字使用繁體中文
 - 介面字串一律放進 `_locales/<語言>/messages.json`，不要寫死在程式或 HTML 裡。新增字串時 `en` 與 `zh_TW` 兩邊都要加，鍵必須一致
-- README 有兩個版本：`README.md`（英文，GitHub 預設顯示）與 `README.zh-TW.md`。隱私政策同樣分成 `PRIVACY.md` 與 `PRIVACY.zh-TW.md`。內容有變動時兩邊都要更新
+- README 有三個版本：`README.md`（英文，GitHub 預設顯示）、`README.zh-TW.md`、`README.zh-CN.md`。隱私政策同樣有 `PRIVACY.md`、`PRIVACY.zh-TW.md`、`PRIVACY.zh-CN.md`。內容有變動時三邊都要更新
 
 ## 測試
 

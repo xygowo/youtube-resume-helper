@@ -2,7 +2,7 @@
 
 適用於 Chrome / Edge 擴充功能「YouTube 續播助手」（以下稱本擴充功能）。
 
-[English](PRIVACY.md) · 繁體中文
+[English](PRIVACY.md) · 繁體中文 · [简体中文](PRIVACY.zh-CN.md)
 
 ## 處理的資料
 

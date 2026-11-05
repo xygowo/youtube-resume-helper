@@ -8,7 +8,7 @@ Chrome / Edge 擴充功能。把 YouTube 觀看進度存在瀏覽器本機，重
 ![Chrome](https://img.shields.io/badge/chrome-88%2B-4285F4?style=flat-square)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
 
-[English](README.md) · 繁體中文
+[English](README.md) · 繁體中文 · [简体中文](README.zh-CN.md)
 
 ## 問題
 

@@ -40,10 +40,9 @@ for (const file of files) {
 }
 
 check('Markdown 內沒有失效的相對連結', broken.length === 0, broken.join('; ') || `${files.length} 個檔案`);
-check('README 有中英文兩版', fs.existsSync(path.join(ROOT, 'README.md')) && fs.existsSync(path.join(ROOT, 'README.zh-TW.md')));
-check(
-  '隱私政策有中英文兩版',
-  fs.existsSync(path.join(ROOT, 'PRIVACY.md')) && fs.existsSync(path.join(ROOT, 'PRIVACY.zh-TW.md'))
-);
+const hasAll = (names) => names.every((name) => fs.existsSync(path.join(ROOT, name)));
+
+check('README 有三種語言版本', hasAll(['README.md', 'README.zh-TW.md', 'README.zh-CN.md']));
+check('隱私政策有三種語言版本', hasAll(['PRIVACY.md', 'PRIVACY.zh-TW.md', 'PRIVACY.zh-CN.md']));
 
 done();

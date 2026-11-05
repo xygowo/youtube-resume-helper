@@ -2,7 +2,7 @@
 
 Applies to the Chrome / Edge extension "YouTube Resume Helper" (the "extension").
 
-English · [繁體中文](PRIVACY.zh-TW.md)
+English · [繁體中文](PRIVACY.zh-TW.md) · [简体中文](PRIVACY.zh-CN.md)
 
 ## What this extension handles
 

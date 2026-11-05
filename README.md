@@ -8,7 +8,7 @@ Chrome / Edge extension that keeps YouTube watch progress in the browser's local
 ![Chrome](https://img.shields.io/badge/chrome-88%2B-4285F4?style=flat-square)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
 
-English · [繁體中文](README.zh-TW.md)
+English · [繁體中文](README.zh-TW.md) · [简体中文](README.zh-CN.md)
 
 ## The problem
 
