@@ -57,5 +57,6 @@ License: MIT
 | 商品頁面語言 | English |
 | 類別 | Productivity |
 | 隱私權政策 | https://github.com/xygowo/youtube-resume-helper/blob/main/PRIVACY.md |
+| 螢幕截圖 | `store/screenshots/en/1.png` ～ `3.png` |
 
-截圖目前只有中文版。若要讓英文頁面一致，需重新產生英文截圖（`PREVIEW_LOCALE=en` 只換工具列面板，外框文案在 `store/screens/*.html` 內仍是中文）。
+宣傳圖（`promo-440x280.png`、`marquee-1400x560.png`）所有語言共用，內容不含文字。

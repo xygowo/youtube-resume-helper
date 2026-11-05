@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>screenshot 3</title>
@@ -8,15 +8,15 @@
   body {
     width: 1280px; height: 800px; overflow: hidden; position: relative;
     background: #0a0a0d; color: #fff;
-    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", "Segoe UI", system-ui, sans-serif;
   }
   .glow { position: absolute; width: 1100px; height: 700px; left: 50%; top: -420px; margin-left: -550px;
     background: radial-gradient(ellipse, rgba(240,0,43,.18) 0%, rgba(240,0,43,0) 64%); }
   .wrap { position: relative; height: 100%; display: flex; flex-direction: column;
     align-items: center; justify-content: center; padding-bottom: 10px; }
-  h2 { font-size: 36px; font-weight: 800; letter-spacing: -.01em; }
+  h2 { font-size: 36px; font-weight: 800; letter-spacing: -.01em; text-align: center; }
   h2 span { color: #ff3b4e; }
-  .sub { margin-top: 14px; font-size: 15px; color: #8b8b98; }
+  .sub { margin-top: 14px; font-size: 15px; color: #8b8b98; text-align: center; }
 
   .flow { margin-top: 52px; display: flex; align-items: center; gap: 20px; }
   .card { width: 322px; height: 336px; border-radius: 18px; padding: 26px 26px 24px;
@@ -47,8 +47,8 @@
 <body>
   <div class="glow"></div>
   <div class="wrap">
-    <h2>進度存在<span>本機</span>，不靠網址</h2>
-    <p class="sub">換片、關分頁、關瀏覽器，寫入的時機都不同。</p>
+    <h2>{{flowTitle}}</h2>
+    <p class="sub">{{flowSub}}</p>
 
     <div class="flow">
       <div class="card">
@@ -59,8 +59,8 @@
             <path d="M17.5 15.6v10.8L27 21z" fill="#ff3b4e"/>
           </svg>
         </div>
-        <h3>播放中</h3>
-        <p>每秒讀取播放器狀態，每 2.5 秒寫入一次進度。</p>
+        <h3>{{flowStep1Title}}</h3>
+        <p>{{flowStep1Desc}}</p>
         <div class="mini">
           <div class="bar"><i style="width:26%"></i></div>
           <div class="stamp"><b>12:34</b><span>48:20</span></div>
@@ -81,10 +81,10 @@
             <circle cx="13" cy="11" r="1.4" fill="#8d8d9a"/>
           </svg>
         </div>
-        <h3>關閉瀏覽器</h3>
-        <p>暫停、換片、關閉分頁時各補寫一次，最後一次狀態已落在本機。</p>
+        <h3>{{flowStep2Title}}</h3>
+        <p>{{flowStep2Desc}}</p>
         <div class="mini">
-          <span class="chip">● 已寫入 chrome.storage.local</span>
+          <span class="chip">● {{flowStep2Chip}}</span>
         </div>
       </div>
 
@@ -100,16 +100,16 @@
             <path d="M31 5v7h-7" stroke="#ff3b4e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
         </div>
-        <h3>重新打開</h3>
-        <p>讀到記錄後等播放器就緒才 seek，被重置會重試。</p>
+        <h3>{{flowStep3Title}}</h3>
+        <p>{{flowStep3Desc}}</p>
         <div class="mini">
           <div class="bar"><i style="width:26%"></i></div>
-          <div class="stamp"><b>接回 12:34</b><span>48:20</span></div>
+          <div class="stamp"><b>{{flowStep3Stamp}}</b><span>48:20</span></div>
         </div>
       </div>
     </div>
 
-    <p class="foot">記錄上限 300 筆，超過時刪除最舊的一筆。</p>
+    <p class="foot">{{flowFoot}}</p>
   </div>
 </body>
 </html>

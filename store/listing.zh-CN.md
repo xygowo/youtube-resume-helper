@@ -58,6 +58,7 @@ storage：保存视频 ID 与观看秒数。内容脚本只在 youtube.com 上�
 | --- | --- |
 | 商品頁面語言 | 中文（简体） |
 | 類別 | 生产工具 |
-| 隱私權政策 | https://github.com/xygowo/youtube-resume-helper/blob/main/PRIVACY.zh-TW.md |
+| 隱私權政策 | https://github.com/xygowo/youtube-resume-helper/blob/main/PRIVACY.md |
+| 螢幕截圖 | `store/screenshots/zh-CN/1.png` ～ `3.png` |
 
-隱私權政策目前只有繁體與英文兩版，沒有簡體版。簡體頁面可以先連到英文版，或補一份 `PRIVACY.zh-CN.md`。
+隱私權政策目前只有繁體與英文兩版，沒有簡體版，所以先連到英文版。宣傳圖所有語言共用，內容不含文字。

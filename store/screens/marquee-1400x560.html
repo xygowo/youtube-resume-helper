@@ -1,50 +1,75 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>marquee</title>
 <style>
+  /* 大型宣傳圖同樣只有一份，所有語言共用，畫面不含任何文字 */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 1400px; height: 560px; overflow: hidden; position: relative;
     background: #0a0a0d; color: #fff;
-    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+    font-family: "Segoe UI", "Microsoft JhengHei", system-ui, sans-serif;
   }
-  .glow { position: absolute; width: 1000px; height: 1000px; right: -260px; top: -420px;
-    background: radial-gradient(circle, rgba(240,0,43,.34) 0%, rgba(240,0,43,0) 62%); }
-  .glow.left { left: -360px; right: auto; bottom: -520px; top: auto; width: 900px; height: 900px;
-    background: radial-gradient(circle, rgba(86,72,255,.15) 0%, rgba(86,72,255,0) 66%); }
+  .glow { position: absolute; width: 1100px; height: 1100px; right: -300px; top: -460px;
+    background: radial-gradient(circle, rgba(240,0,43,.3) 0%, rgba(240,0,43,0) 62%); }
+  .glow.left { left: -380px; right: auto; bottom: -560px; top: auto; width: 900px; height: 900px;
+    background: radial-gradient(circle, rgba(86,72,255,.16) 0%, rgba(86,72,255,0) 66%); }
   .mesh { position: absolute; inset: 0;
     background-image: linear-gradient(rgba(255,255,255,.025) 1px, transparent 1px),
                       linear-gradient(90deg, rgba(255,255,255,.025) 1px, transparent 1px);
     background-size: 70px 70px; }
-  .wrap { position: relative; height: 100%; display: flex; align-items: center; gap: 70px; padding: 0 88px; }
-  .copy { width: 660px; flex: none; }
-  .brand { display: flex; align-items: center; gap: 14px; }
-  .brand img { width: 52px; height: 52px; border-radius: 13px; }
-  .brand span { font-size: 19px; font-weight: 700; letter-spacing: .01em; }
-  h1 { margin-top: 30px; font-size: 52px; line-height: 1.2; font-weight: 800; letter-spacing: -.02em; }
-  h1 em { font-style: normal; color: #ff3b4e; }
-  p { margin-top: 22px; font-size: 16px; line-height: 1.85; color: #9a9aa7; width: 560px; }
-  .shot { flex: 1; display: flex; justify-content: center; }
-  .shot img { width: 372px; border-radius: 14px;
-    box-shadow: 0 40px 90px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.09); }
+
+  .player { position: absolute; inset: 44px 60px; border-radius: 22px; overflow: hidden;
+    background: #05060a; box-shadow: 0 50px 110px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.08); }
+  .frame { position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 900px 520px at 70% 32%, rgba(255,138,76,.3), transparent 62%),
+      radial-gradient(ellipse 760px 480px at 22% 76%, rgba(64,120,255,.26), transparent 66%),
+      linear-gradient(160deg, #10131c 0%, #070810 58%, #0b0a12 100%); }
+  .frame::after { content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 42%, rgba(0,0,0,.55) 100%); }
+  .vignette { position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.5) 0%, rgba(0,0,0,0) 24%),
+                linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,0) 32%); }
+
+  .badge { position: absolute; left: 34px; top: 30px; width: 64px; height: 64px; border-radius: 16px;
+    box-shadow: 0 14px 34px rgba(0,0,0,.55), 0 0 0 1px rgba(255,255,255,.1); }
+
+  .play { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -54%);
+    width: 132px; height: 132px; opacity: .16; }
+  .play circle { fill: none; stroke: #fff; stroke-width: 3; }
+  .play path { fill: #fff; }
+
+  .controls { position: absolute; left: 40px; right: 40px; bottom: 34px; }
+  .track { position: relative; height: 6px; border-radius: 5px; background: rgba(255,255,255,.24); }
+  .track i { position: absolute; inset: 0 auto 0 0; width: 34%; background: #ff0033; border-radius: 5px; }
+  .track b { position: absolute; left: 34%; top: 50%; width: 16px; height: 16px; margin: -8px 0 0 -8px;
+    border-radius: 50%; background: #ff0033; box-shadow: 0 0 0 5px rgba(255,0,51,.2); }
+  .times { margin-top: 12px; display: flex; justify-content: space-between;
+    font-size: 14px; color: rgba(255,255,255,.62); font-variant-numeric: tabular-nums; }
+  .times .dim { color: rgba(255,255,255,.34); }
 </style>
 </head>
 <body>
   <div class="glow"></div>
   <div class="glow left"></div>
   <div class="mesh"></div>
-  <div class="wrap">
-    <div class="copy">
-      <div class="brand">
-        <img src="../../icons/icon128.png" alt="">
-        <span>YouTube 續播助手</span>
-      </div>
-      <h1>關掉瀏覽器，<em>進度還在。</em></h1>
-      <p>把觀看進度存在瀏覽器本機，重新打開影片時接續上次的時間點。不依賴網址參數，也不依賴帳號的觀看記錄。</p>
+
+  <div class="player">
+    <div class="frame"></div>
+    <div class="vignette"></div>
+    <img class="badge" src="../../icons/icon128.png" alt="">
+
+    <svg class="play" viewBox="0 0 100 100">
+      <circle cx="50" cy="50" r="44" />
+      <path d="M41 32v36l30-18z" />
+    </svg>
+
+    <div class="controls">
+      <div class="track"><i></i><b></b></div>
+      <div class="times"><span>12:34</span><span class="dim">48:20</span></div>
     </div>
-    <div class="shot"><img src="../tmp/popup.png" alt=""></div>
   </div>
 </body>
 </html>

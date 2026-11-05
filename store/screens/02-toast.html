@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>screenshot 2</title>
@@ -8,13 +8,13 @@
   body {
     width: 1280px; height: 800px; overflow: hidden; position: relative;
     background: #0a0a0d; color: #fff;
-    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", "Segoe UI", system-ui, sans-serif;
   }
   .glow { position: absolute; width: 1000px; height: 1000px; left: 50%; top: -560px; margin-left: -500px;
     background: radial-gradient(circle, rgba(240,0,43,.22) 0%, rgba(240,0,43,0) 60%); }
   .wrap { position: relative; height: 100%; display: flex; flex-direction: column;
     align-items: center; padding: 56px 0 0; }
-  h2 { font-size: 33px; font-weight: 800; letter-spacing: -.01em; }
+  h2 { font-size: 33px; font-weight: 800; letter-spacing: -.01em; text-align: center; }
   h2 em { font-style: normal; color: #ff3b4e; }
   .sub { margin-top: 12px; font-size: 15px; color: #8f8f9c; }
 
@@ -59,17 +59,17 @@
 <body>
   <div class="glow"></div>
   <div class="wrap">
-    <h2>接續後，左下角顯示<em>上次的時間點</em></h2>
-    <p class="sub">不想接續就按「從頭播放」，該筆記錄會一併清除。</p>
+    <h2>{{toastTitle}}</h2>
+    <p class="sub">{{toastSub}}</p>
 
     <div class="player">
       <div class="frame"></div>
       <div class="vignette"></div>
-      <div class="title">2026 新手攝影入門：從構圖到打光</div>
+      <div class="title">{{toastVideoTitle}}</div>
 
       <div class="toast">
-        <span>已接續上次進度 <b>12:34</b></span>
-        <span class="btn">從頭播放</span>
+        <span>{{toastText}} <b>12:34</b></span>
+        <span class="btn">{{toastButton}}</span>
         <span class="x">✕</span>
       </div>
 
@@ -79,7 +79,7 @@
       </div>
     </div>
 
-    <p class="caption">記錄每 <b>2.5 秒</b>寫入一次，暫停、換片、關閉分頁時各補寫一次。</p>
+    <p class="caption">{{toastCaption}}</p>
   </div>
 </body>
 </html>

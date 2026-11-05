@@ -1,35 +1,48 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html lang="en">
 <head>
 <meta charset="utf-8">
 <title>promo tile</title>
 <style>
+  /* 商店的小型宣傳圖只有一份，所有語言共用，因此不放任何文字 */
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body {
     width: 440px; height: 280px; overflow: hidden; position: relative;
     background: #0a0a0d; color: #fff;
-    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+    font-family: "Segoe UI", "Microsoft JhengHei", system-ui, sans-serif;
   }
-  .glow { position: absolute; width: 520px; height: 520px; right: -190px; top: -230px;
+  .glow { position: absolute; width: 560px; height: 560px; right: -200px; top: -240px;
     background: radial-gradient(circle, rgba(240,0,43,.42) 0%, rgba(240,0,43,0) 62%); }
-  .glow.left { left: -220px; right: auto; bottom: -300px; top: auto; width: 460px; height: 460px;
+  .glow.left { left: -240px; right: auto; bottom: -320px; top: auto; width: 480px; height: 480px;
     background: radial-gradient(circle, rgba(86,72,255,.16) 0%, rgba(86,72,255,0) 68%); }
-  .inner { position: relative; height: 100%; padding: 34px 32px; display: flex; flex-direction: column; }
-  img { width: 54px; height: 54px; border-radius: 13px; box-shadow: 0 10px 26px rgba(240,0,43,.3); }
-  h1 { margin-top: 22px; font-size: 27px; font-weight: 800; letter-spacing: -.01em; }
-  p { margin-top: 9px; font-size: 14.5px; line-height: 1.6; color: #a0a0ad; }
-  p b { color: #ff3b4e; font-weight: 700; }
-  .tag { margin-top: auto; font-size: 11.5px; letter-spacing: .12em; color: #6b6b78; }
+  .mesh { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.03) 1px, transparent 1px);
+    background-size: 44px 44px; }
+  .inner { position: relative; height: 100%; display: flex; flex-direction: column;
+    align-items: center; justify-content: center; gap: 34px; }
+  .icon { width: 92px; height: 92px; border-radius: 22px;
+    box-shadow: 0 18px 44px rgba(240,0,43,.34), 0 0 0 1px rgba(255,255,255,.08); }
+  .line { display: flex; align-items: center; gap: 12px; width: 320px;
+    font-variant-numeric: tabular-nums; font-size: 13px; font-weight: 600; color: #d8d8e0; }
+  .line .dim { color: #6f6f7c; font-weight: 500; }
+  .track { position: relative; flex: 1; height: 5px; border-radius: 4px; background: rgba(255,255,255,.16); }
+  .track i { position: absolute; inset: 0 auto 0 0; width: 34%; background: #ff0033; border-radius: 4px; }
+  .track b { position: absolute; left: 34%; top: 50%; width: 11px; height: 11px; margin: -5.5px 0 0 -5.5px;
+    border-radius: 50%; background: #ff0033; box-shadow: 0 0 0 4px rgba(255,0,51,.2); }
 </style>
 </head>
 <body>
   <div class="glow"></div>
   <div class="glow left"></div>
+  <div class="mesh"></div>
   <div class="inner">
-    <img src="../../icons/icon128.png" alt="">
-    <h1>YouTube 續播助手</h1>
-    <p>關掉瀏覽器，<b>進度還在</b>。<br>重新打開就接回原處。</p>
-    <div class="tag">CHROME / EDGE</div>
+    <img class="icon" src="../../icons/icon128.png" alt="">
+    <div class="line">
+      <span>12:34</span>
+      <div class="track"><i></i><b></b></div>
+      <span class="dim">48:20</span>
+    </div>
   </div>
 </body>
 </html>

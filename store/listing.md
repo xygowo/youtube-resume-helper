@@ -65,16 +65,29 @@ storage：儲存影片 ID 與觀看秒數。內容腳本只在 youtube.com 上�
 
 ## 圖檔
 
+商店只有螢幕截圖能逐語言替換，兩張宣傳圖所有語言共用一份。
+
+### 螢幕截圖（每種語言一組）
+
+| 語言 | 檔案 |
+| --- | --- |
+| 繁體中文 | `store/screenshots/zh-TW/1.png` ～ `3.png` |
+| 簡體中文 | `store/screenshots/zh-CN/1.png` ～ `3.png` |
+| 英文 | `store/screenshots/en/1.png` ～ `3.png` |
+
+三張的順序固定：主視覺、接續提示、運作流程。尺寸皆為 1280×800。
+
+### 共用圖檔
+
 | 檔案 | 尺寸 | 商店欄位 |
 | --- | --- | --- |
-| `store/screenshot-1.png` | 1280×800 | 螢幕截圖 1 |
-| `store/screenshot-2.png` | 1280×800 | 螢幕截圖 2 |
-| `store/screenshot-3.png` | 1280×800 | 螢幕截圖 3 |
 | `store/promo-440x280.png` | 440×280 | 小型宣傳圖 |
 | `store/marquee-1400x560.png` | 1400×560 | 大型宣傳圖 |
 | `icons/icon128.png` | 128×128 | 商店圖示 |
 
-重新產生：`node tools/screenshots.js`（需要本機安裝 Chrome，可用 `CHROME_PATH` 指定路徑）。
+兩張宣傳圖不含任何文字，只放圖示、時間碼與進度條，所以三種語言的頁面都能用。
+
+重新產生：`node tools/screenshots.js`（需要本機安裝 Chrome，可用 `CHROME_PATH` 指定路徑）。截圖文字在 `store/screens/copy.json`，版型在 `store/screens/*.html`，以 `{{key}}` 佔位。
 
 ---
 
