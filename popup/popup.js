@@ -10,11 +10,23 @@ const DEFAULTS = {
 };
 
 const $ = (sel) => document.querySelector(sel);
+const t = (key, subs) => chrome.i18n.getMessage(key, subs) || key;
 
 let settings = { ...DEFAULTS };
 let items = [];
 let armed = false;
 let armTimer = 0;
+
+function localize() {
+  document.documentElement.lang = chrome.i18n.getUILanguage();
+  document.title = t('appTitle');
+  document.querySelectorAll('[data-i18n]').forEach((el) => {
+    el.textContent = t(el.dataset.i18n);
+  });
+  document.querySelectorAll('[data-i18n-title]').forEach((el) => {
+    el.title = t(el.dataset.i18nTitle);
+  });
+}
 
 function fmt(sec) {
   const s = Math.max(0, Math.floor(sec || 0));
@@ -27,13 +39,14 @@ function fmt(sec) {
 function ago(ts) {
   const diff = Date.now() - (ts || 0);
   const min = Math.floor(diff / 60000);
-  if (min < 1) return '剛剛';
-  if (min < 60) return `${min} 分鐘前`;
+  if (min < 1) return t('timeJustNow');
+  if (min < 60) return t(min === 1 ? 'timeMinute' : 'timeMinutes', [String(min)]);
   const hr = Math.floor(min / 60);
-  if (hr < 24) return `${hr} 小時前`;
+  if (hr < 24) return t(hr === 1 ? 'timeHour' : 'timeHours', [String(hr)]);
   const day = Math.floor(hr / 24);
-  if (day < 30) return `${day} 天前`;
-  return `${Math.floor(day / 30)} 個月前`;
+  if (day < 30) return t(day === 1 ? 'timeDay' : 'timeDays', [String(day)]);
+  const month = Math.floor(day / 30);
+  return t(month === 1 ? 'timeMonth' : 'timeMonths', [String(month)]);
 }
 
 async function load() {
@@ -64,12 +77,12 @@ function render() {
 
   $('#enabled').checked = !!settings.enabled;
   document.body.classList.toggle('off', !settings.enabled);
-  $('#subtitle').textContent = settings.enabled
-    ? items.length
-      ? '已記錄的影片，點一下就接續'
-      : '自動記住觀看進度'
-    : '目前已暫停記錄';
-  $('#count').textContent = items.length ? `共 ${items.length} 部` : '';
+  $('#subtitle').textContent = !settings.enabled
+    ? t('subtitlePaused')
+    : items.length
+      ? t('subtitleReady')
+      : t('subtitleIdle');
+  $('#count').textContent = items.length ? t('recordCount', [String(items.length)]) : '';
 
   empty.hidden = items.length > 0;
   list.hidden = items.length === 0;
@@ -123,7 +136,7 @@ function render() {
     const del = document.createElement('button');
     del.className = 'del';
     del.type = 'button';
-    del.title = '移除這筆紀錄';
+    del.title = t('removeRecord');
     del.textContent = '✕';
     del.addEventListener('click', async (e) => {
       e.stopPropagation();
@@ -159,7 +172,7 @@ function disarm() {
   armed = false;
   const btn = $('#clear');
   btn.classList.remove('armed');
-  btn.textContent = '清除全部';
+  btn.textContent = t('clearAll');
 }
 
 $('#enabled').addEventListener('change', async (e) => {
@@ -173,7 +186,7 @@ $('#clear').addEventListener('click', async () => {
   if (!armed) {
     armed = true;
     btn.classList.add('armed');
-    btn.textContent = '再按一次確認';
+    btn.textContent = t('clearConfirm');
     armTimer = setTimeout(disarm, 3500);
     return;
   }
@@ -185,5 +198,6 @@ $('#clear').addEventListener('click', async () => {
 });
 
 (async () => {
+  localize();
   await refresh();
 })();

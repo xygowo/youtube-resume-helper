@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "YouTube 續播助手",
+    "description": "擴充功能名稱，顯示於工具列、Chrome 線上應用程式商店與擴充功能頁。"
+  },
+  "extShortName": {
+    "message": "續播助手",
+    "description": "空間有限時使用的短名稱。"
+  },
+  "extDescription": {
+    "message": "自動記錄 YouTube 觀看進度，重新打開影片時接續上次的時間點。紀錄只存在本機。",
+    "description": "商店摘要，需在 132 字元以內。"
+  },
+  "appTitle": {
+    "message": "續播助手",
+    "description": "工具列面板的標題。"
+  },
+  "subtitleIdle": {
+    "message": "自動記住觀看進度"
+  },
+  "subtitleReady": {
+    "message": "已記錄的影片，點一下就接續"
+  },
+  "subtitlePaused": {
+    "message": "目前已暫停記錄"
+  },
+  "emptyTitle": {
+    "message": "還沒有觀看紀錄"
+  },
+  "emptyHint": {
+    "message": "在 YouTube 看過影片後，進度會自動存在這台電腦上。"
+  },
+  "clearAll": {
+    "message": "清除全部"
+  },
+  "clearConfirm": {
+    "message": "再按一次確認"
+  },
+  "toggleTitle": {
+    "message": "啟用 / 停用記錄"
+  },
+  "removeRecord": {
+    "message": "移除這筆紀錄"
+  },
+  "recordCount": {
+    "message": "共 $count$ 部",
+    "description": "面板底部的數量。$count$ 是數字。",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "timeJustNow": {
+    "message": "剛剛"
+  },
+  "timeMinute": {
+    "message": "$count$ 分鐘前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "timeMinutes": {
+    "message": "$count$ 分鐘前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "timeHour": {
+    "message": "$count$ 小時前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "timeHours": {
+    "message": "$count$ 小時前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "timeDay": {
+    "message": "$count$ 天前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "timeDays": {
+    "message": "$count$ 天前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "timeMonth": {
+    "message": "$count$ 個月前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "4"
+      }
+    }
+  },
+  "timeMonths": {
+    "message": "$count$ 個月前",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "4"
+      }
+    }
+  },
+  "toastResumed": {
+    "message": "已接續上次進度 $time$",
+    "description": "跳轉後顯示在影片頁面的提示。$time$ 是時間，例如 12:34。",
+    "placeholders": {
+      "time": {
+        "content": "$1",
+        "example": "12:34"
+      }
+    }
+  },
+  "toastStartOver": {
+    "message": "從頭播放"
+  }
+}

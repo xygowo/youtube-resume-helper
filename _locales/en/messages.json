@@ -1,0 +1,143 @@
+{
+  "extName": {
+    "message": "YouTube Resume Helper",
+    "description": "Extension name shown in the toolbar, the Chrome Web Store, and the extensions page."
+  },
+  "extShortName": {
+    "message": "Resume Helper",
+    "description": "Short name used where space is limited."
+  },
+  "extDescription": {
+    "message": "Keeps YouTube watch progress in local storage and resumes playback where you left off.",
+    "description": "Store listing summary. Keep under 132 characters."
+  },
+  "appTitle": {
+    "message": "Resume Helper",
+    "description": "Heading inside the toolbar popup."
+  },
+  "subtitleIdle": {
+    "message": "Keeps track of your watch progress"
+  },
+  "subtitleReady": {
+    "message": "Click a record to resume"
+  },
+  "subtitlePaused": {
+    "message": "Recording is paused"
+  },
+  "emptyTitle": {
+    "message": "No watch history yet"
+  },
+  "emptyHint": {
+    "message": "Records appear here after you watch a video on YouTube. They stay on this computer."
+  },
+  "clearAll": {
+    "message": "Clear all"
+  },
+  "clearConfirm": {
+    "message": "Click again to confirm"
+  },
+  "toggleTitle": {
+    "message": "Turn recording on or off"
+  },
+  "removeRecord": {
+    "message": "Remove this record"
+  },
+  "recordCount": {
+    "message": "$count$ videos",
+    "description": "Footer count. $count$ is a number.",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "12"
+      }
+    }
+  },
+  "timeJustNow": {
+    "message": "just now"
+  },
+  "timeMinute": {
+    "message": "$count$ min ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "timeMinutes": {
+    "message": "$count$ min ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "5"
+      }
+    }
+  },
+  "timeHour": {
+    "message": "$count$ hr ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "timeHours": {
+    "message": "$count$ hr ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "3"
+      }
+    }
+  },
+  "timeDay": {
+    "message": "$count$ day ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "timeDays": {
+    "message": "$count$ days ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "2"
+      }
+    }
+  },
+  "timeMonth": {
+    "message": "$count$ month ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "4"
+      }
+    }
+  },
+  "timeMonths": {
+    "message": "$count$ months ago",
+    "placeholders": {
+      "count": {
+        "content": "$1",
+        "example": "4"
+      }
+    }
+  },
+  "toastResumed": {
+    "message": "Resumed at $time$",
+    "description": "Shown on the video page after seeking. $time$ is a timestamp such as 12:34.",
+    "placeholders": {
+      "time": {
+        "content": "$1",
+        "example": "12:34"
+      }
+    }
+  },
+  "toastStartOver": {
+    "message": "Start over"
+  }
+}

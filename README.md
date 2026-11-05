@@ -25,6 +25,7 @@ This extension stores `videoId → seconds` in `chrome.storage.local`. It does n
 - Clears the record when you stop within 20 seconds of the end
 - Defers to `t=` / `start=` when the URL already carries a timestamp
 - Aborts the resume as soon as you interact with the player
+- Interface and extension name follow the browser language (English and Traditional Chinese included)
 - Toggle in the popup to pause recording
 
 ## Install
@@ -78,6 +79,10 @@ npm run build  # produces dist/youtube-resume-helper-<version>.zip
 
 The tests run `content.js` against a minimal DOM and `chrome.storage` mock, covering resume, recording, ads, navigation, end of video, URL timestamps, and user interaction.
 
+### Localization
+
+All user-facing strings live in `_locales/<locale>/messages.json`, with `en` as the default locale. To add a language, copy `_locales/en/messages.json` into a new folder using a [supported locale code](https://developer.chrome.com/docs/extensions/reference/api/i18n#locales) such as `ja`, translate the `message` values, and run `npm test`. The test checks that every locale has the same keys and that placeholders match.
+
 ### Project layout
 
 ```
@@ -85,7 +90,8 @@ The tests run `content.js` against a minimal DOM and `chrome.storage` mock, cove
 ├─ content/content.js     # recording and resume logic
 ├─ popup/                 # toolbar panel
 ├─ icons/                 # 16 / 32 / 48 / 128
-├─ test/                  # behaviour tests and manifest checks
+├─ _locales/              # en and zh_TW message files
+├─ test/                  # behaviour tests, manifest and i18n checks
 ├─ tools/                 # build script (dependency-free zip writer)
 ├─ store/                 # Chrome Web Store assets and listing copy
 └─ .github/workflows/     # CI and release

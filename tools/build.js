@@ -13,7 +13,7 @@ const { createZip } = require('./zip');
 
 const ROOT = path.resolve(__dirname, '..');
 const OUT_DIR = path.join(ROOT, 'dist');
-const INCLUDE = ['manifest.json', 'content', 'popup', 'icons', 'LICENSE'];
+const INCLUDE = ['manifest.json', 'content', 'popup', 'icons', '_locales', 'LICENSE'];
 
 const manifest = JSON.parse(fs.readFileSync(path.join(ROOT, 'manifest.json'), 'utf8'));
 const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));

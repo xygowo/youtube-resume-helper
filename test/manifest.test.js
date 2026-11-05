@@ -23,8 +23,21 @@ function pngSize(buf) {
 }
 
 check('manifest_version 為 3', manifest.manifest_version === 3);
-check('名稱不超過 45 字元', manifest.name.length <= 45, `${manifest.name.length} 字元`);
-check('說明不超過 132 字元', manifest.description.length <= 132, `${manifest.description.length} 字元`);
+
+// name 與 description 是 __MSG_ 佔位符，長度要換算成實際字串才算得準
+const messages = manifest.default_locale && exists(`_locales/${manifest.default_locale}/messages.json`)
+  ? JSON.parse(read(`_locales/${manifest.default_locale}/messages.json`).toString('utf8'))
+  : {};
+const resolve = (value) =>
+  String(value).replace(/__MSG_([A-Za-z0-9_]+)__/g, (_, key) => (messages[key] ? messages[key].message : `__MISSING_${key}__`));
+
+const displayName = resolve(manifest.name);
+const displayDescription = resolve(manifest.description);
+
+check('有宣告 default_locale', !!manifest.default_locale, manifest.default_locale);
+check('名稱與說明沒有未解析的佔位符', !displayName.includes('__') && !displayDescription.includes('__'));
+check('名稱不超過 45 字元', displayName.length <= 45, `${displayName.length} 字元`);
+check('說明不超過 132 字元', displayDescription.length <= 132, `${displayDescription.length} 字元`);
 check('版本號格式正確', /^\d+(\.\d+){0,3}$/.test(manifest.version), manifest.version);
 check('版本號與 package.json 一致', manifest.version === pkg.version, `${manifest.version} / ${pkg.version}`);
 

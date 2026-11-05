@@ -26,6 +26,7 @@ Chrome / Edge 擴充功能。把 YouTube 觀看進度存在瀏覽器本機，重
 - 網址自帶 `t=` 或 `start=` 時以網址為準，不覆蓋分享連結指定的時間
 - 拖動進度條或點擊播放器後，本次續播立即取消
 - 工具列面板可切換記錄功能的開關
+- 介面與擴充功能名稱跟著瀏覽器語言切換（內建英文與繁體中文）
 
 ## 安裝
 
@@ -78,6 +79,10 @@ npm run build  # 產生 dist/youtube-resume-helper-<version>.zip
 
 測試以最小化的 DOM 與 `chrome.storage` 模擬執行 `content.js`，涵蓋續播、記錄、廣告、換片、片尾、網址參數與使用者互動等路徑。
 
+### 多語言
+
+介面文字放在 `_locales/<語言>/messages.json`，預設語言是 `en`。要新增語言，把 `_locales/en/messages.json` 複製到新的資料夾（資料夾名稱用[支援的語言代碼](https://developer.chrome.com/docs/extensions/reference/api/i18n#locales)，例如 `ja`），翻譯 `message` 欄位後執行 `npm test`。測試會檢查各語言的鍵是否一致、佔位符是否對得上。
+
 ### 專案結構
 
 ```
@@ -85,7 +90,8 @@ npm run build  # 產生 dist/youtube-resume-helper-<version>.zip
 ├─ content/content.js     # 記錄與續播邏輯
 ├─ popup/                 # 工具列面板
 ├─ icons/                 # 16 / 32 / 48 / 128
-├─ test/                  # 行為測試與 manifest 檢查
+├─ _locales/              # 英文與繁體中文語言檔
+├─ test/                  # 行為測試、manifest 與 i18n 檢查
 ├─ tools/                 # 打包腳本（含無依賴的 zip 實作）
 ├─ store/                 # 商店上架用素材與文案
 └─ .github/workflows/     # CI 與發版流程

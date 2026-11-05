@@ -85,6 +85,14 @@
     return `${location.origin}/watch?v=${id}`;
   }
 
+  function t(key, subs) {
+    try {
+      return chrome.i18n.getMessage(key, subs) || key;
+    } catch (_) {
+      return key;
+    }
+  }
+
   // 網址本身就帶了時間（例如別人分享的 ?t=90s），代表使用者有意圖，不要覆蓋
   function hasExplicitTime() {
     const u = new URL(location.href);
@@ -296,10 +304,23 @@
         .close { font-size: 12px; padding: 2px 6px; color: #8a8a8a; }
       </style>
       <div class="box">
-        <span>已接續上次進度 <b>${fmt(seconds)}</b></span>
-        <button class="restart">從頭播放</button>
+        <span class="label"></span>
+        <button class="restart"></button>
         <button class="close">✕</button>
       </div>`;
+
+    // 用哨兵值取出時間在句子裡的位置，讓不同語言的語序都能正確上色
+    const label = root.querySelector('.label');
+    const sentence = t('toastResumed', ['\u0001']);
+    const parts = sentence.split('\u0001');
+    if (parts.length === 2) {
+      const time = document.createElement('b');
+      time.textContent = fmt(seconds);
+      label.append(parts[0], time, parts[1]);
+    } else {
+      label.textContent = sentence;
+    }
+    root.querySelector('.restart').textContent = t('toastStartOver');
 
     root.querySelector('.restart').addEventListener('click', () => {
       try {

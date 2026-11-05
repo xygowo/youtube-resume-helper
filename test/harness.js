@@ -146,6 +146,14 @@ function setup(options = {}) {
         }
       },
       onChanged: { addListener() {} }
+    },
+    i18n: {
+      // 測試只在意字串有沒有被取出，回傳 key 加上替代值即可
+      getMessage(key, subs) {
+        const list = subs === undefined ? [] : Array.isArray(subs) ? subs : [subs];
+        return list.length ? `${key}:${list.join(',')}` : key;
+      },
+      getUILanguage: () => 'zh-TW'
     }
   };
 

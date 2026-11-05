@@ -6,6 +6,7 @@
  * 用法：
  *   node tools/screenshots.js
  *   CHROME_PATH="/path/to/chrome" node tools/screenshots.js
+ *   PREVIEW_LOCALE=en node tools/screenshots.js   # 用英文介面渲染，確認版面
  *
  * 會先渲染工具列面板（含假的觀看記錄），再合成三張 1280x800 截圖
  * 與兩張宣傳圖。輸出到 store/。
@@ -109,10 +110,33 @@ function buildPopupPreview() {
     };
   }
 
-  const stub =
-    `<script>Object.defineProperty(window,'chrome',{configurable:true,value:{` +
-    `storage:{local:{get:async()=>(${JSON.stringify(data)}),set:async()=>{},remove:async()=>{}}},` +
-    `tabs:{create(){}}}});</script>`;
+  const LOCALE = process.env.PREVIEW_LOCALE || 'zh_TW';
+  const locale = JSON.parse(fs.readFileSync(path.join(ROOT, '_locales', LOCALE, 'messages.json'), 'utf8'));
+
+  const stub = `<script>(function () {
+    var M = ${JSON.stringify(locale)};
+    var getMessage = function (key, subs) {
+      var entry = M[key];
+      if (!entry) return '';
+      var list = subs === undefined ? [] : (Array.isArray(subs) ? subs : [subs]);
+      var out = entry.message;
+      var ph = entry.placeholders || {};
+      Object.keys(ph).forEach(function (name) {
+        var index = Number(String(ph[name].content).replace('$', '')) - 1;
+        out = out.split('$' + name + '$').join(list[index] === undefined ? '' : list[index]);
+      });
+      return out;
+    };
+    Object.defineProperty(window, 'chrome', { configurable: true, value: {
+      storage: { local: {
+        get: function () { return Promise.resolve(${JSON.stringify(data)}); },
+        set: function () { return Promise.resolve(); },
+        remove: function () { return Promise.resolve(); }
+      } },
+      tabs: { create: function () {} },
+      i18n: { getMessage: getMessage, getUILanguage: function () { return '${LOCALE}'; } }
+    } });
+  })();</script>`;
 
   const finish = `<script>
     const swap = () => {
@@ -127,13 +151,14 @@ function buildPopupPreview() {
     }, 800);
   </script>`;
 
-  // 放在 popup/ 內，讓 ../icons 之類的相對路徑維持正確
+  // 放在 popup/ 內，讓 ../icons 之類的相對路徑維持正確。
+  // 替換一律用函式回傳：字串替換會把 $' 之類的樣板當成特殊語法。
   const out = path.join(ROOT, 'popup', '__preview.html');
   fs.writeFileSync(
     out,
     html
-      .replace('<script src="popup.js"></script>', stub + '<script src="popup.js"></script>')
-      .replace('</body>', finish + '</body>')
+      .replace('<script src="popup.js"></script>', () => stub + '<script src="popup.js"></script>')
+      .replace('</body>', () => finish + '</body>')
   );
   return out;
 }
@@ -160,5 +185,5 @@ shoot(path.join(STORE, 'screens', '03-flow.html'), path.join(STORE, 'screenshot-
 shoot(path.join(STORE, 'screens', 'promo-440x280.html'), path.join(STORE, 'promo-440x280.png'), 440, 280, 1);
 shoot(path.join(STORE, 'screens', 'marquee-1400x560.html'), path.join(STORE, 'marquee-1400x560.png'), 1400, 560, 1);
 
-fs.rmSync(preview, { force: true });
+if (!process.env.DEBUG) fs.rmSync(preview, { force: true });
 console.log('完成。');
