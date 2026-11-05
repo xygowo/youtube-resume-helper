@@ -4,11 +4,13 @@ Applies to the Chrome / Edge extension "YouTube Resume Helper" (the "extension")
 
 English · [繁體中文](PRIVACY.zh-TW.md)
 
-## Data collected
+## What this extension handles
 
-None. The extension has no accounts, no analytics, and no tracking code.
+The extension handles one kind of data: the watch progress of YouTube videos you play. It stays on your device. There are no accounts, no analytics, and no tracking code.
 
-## Data stored
+This handling is disclosed on the Chrome Web Store listing under **web history** and **website content**.
+
+## Data stored locally
 
 While a video plays, the extension writes the following to the browser's local storage (`chrome.storage.local`):
 
