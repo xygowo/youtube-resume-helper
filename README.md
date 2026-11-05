@@ -53,7 +53,7 @@ Link to be added once the listing is live.
 | Edge cases | Skips ads (`.ad-showing`); live streams have an infinite `duration` and are not recorded; short videos are not mistaken for finished |
 | Abort conditions | URL timestamp present, player interaction, retry limit reached |
 
-Records use `v:<videoId>` keys, capped at 300 entries; the oldest are removed first.
+Records use `v:<videoId>` keys, capped at 300 entries; the oldest are removed when you switch videos.
 
 ## Configuration
 

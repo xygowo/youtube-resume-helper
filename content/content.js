@@ -20,7 +20,6 @@
   let videoId = null;
   let videoEl = null;
   let lastWrite = 0;
-  let writeCount = 0;
   let pending = null; // { id, target, seeks, waits }
   let restored = false;
   let userTouched = false;
@@ -178,8 +177,6 @@
       }
     });
     lastWrite = Date.now();
-    writeCount += 1;
-    if (writeCount % 25 === 0) prune();
   }
 
   function onEnded() {
@@ -359,6 +356,8 @@
 
     if (!id) return;
     findVideo();
+    // 紀錄只會在換新影片時變多，換片時檢查一次上限即可
+    prune();
     tryRestore(id);
   }
 
