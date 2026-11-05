@@ -2,6 +2,7 @@
 
 Chrome / Edge 擴充功能。把 YouTube 觀看進度存在瀏覽器本機，重新打開影片時接續上次的時間點。
 
+![CI](https://github.com/xygowo/youtube-resume-helper/actions/workflows/ci.yml/badge.svg)
 ![Manifest V3](https://img.shields.io/badge/manifest-v3-3ddc84?style=flat-square)
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Chrome](https://img.shields.io/badge/chrome-88%2B-4285F4?style=flat-square)
