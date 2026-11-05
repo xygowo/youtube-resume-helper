@@ -93,7 +93,7 @@ npm run build  # 產生 dist/youtube-resume-helper-<version>.zip
 
 ## 隱私
 
-所有記錄存在 `chrome.storage.local`，不上傳、不連外，程式碼中沒有分析或追蹤工具。移除擴充功能時記錄一併刪除。詳見 [PRIVACY.md](PRIVACY.md)。
+所有記錄存在 `chrome.storage.local`，不上傳、不連外，程式碼中沒有分析或追蹤工具。移除擴充功能時記錄一併刪除。詳見 [PRIVACY.zh-TW.md](PRIVACY.zh-TW.md)。
 
 ## 授權
 

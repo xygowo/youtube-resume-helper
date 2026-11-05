@@ -14,7 +14,9 @@
 | 類別 | 生產力工具 |
 | 語言 | 繁體中文 |
 | 首頁網址 | https://github.com/xygowo/youtube-resume-helper |
-| 隱私權政策 | https://github.com/xygowo/youtube-resume-helper/blob/main/PRIVACY.md |
+| 隱私權政策 | https://github.com/xygowo/youtube-resume-helper/blob/main/PRIVACY.zh-TW.md |
+
+隱私權政策有中英文兩版：`PRIVACY.zh-TW.md` 與 `PRIVACY.md`。目前商店頁面是繁體中文，所以指到中文版；之後若新增英文版商店頁面，改指 `PRIVACY.md`。
 
 名稱上限 45 字元、簡短說明上限 132 字元，以上皆在限制內。
 

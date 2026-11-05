@@ -17,7 +17,7 @@ npm run build  # 打包 dist/youtube-resume-helper-<version>.zip
 - 不引入第三方依賴。需要新功能時優先用瀏覽器與 Node 內建 API
 - 註解說明「為什麼」，不重述程式碼在做什麼
 - UI 文字使用繁體中文
-- README 有兩個版本：`README.md`（英文，GitHub 預設顯示）與 `README.zh-TW.md`。功能或安裝方式有變動時兩邊都要更新
+- README 有兩個版本：`README.md`（英文，GitHub 預設顯示）與 `README.zh-TW.md`。隱私政策同樣分成 `PRIVACY.md` 與 `PRIVACY.zh-TW.md`。內容有變動時兩邊都要更新
 
 ## 測試
 

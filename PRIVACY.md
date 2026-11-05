@@ -1,46 +1,48 @@
-# 隱私政策
+# Privacy Policy
 
-適用於 Chrome / Edge 擴充功能「YouTube 續播助手」（以下稱本擴充功能）。
+Applies to the Chrome / Edge extension "YouTube Resume Helper" (the "extension").
 
-## 收集的資料
+English · [繁體中文](PRIVACY.zh-TW.md)
 
-無。本擴充功能不收集個人資料，沒有帳號系統，也沒有分析或追蹤程式碼。
+## Data collected
 
-## 儲存的資料
+None. The extension has no accounts, no analytics, and no tracking code.
 
-播放影片時，本擴充功能會把以下內容寫入瀏覽器的本機儲存空間 `chrome.storage.local`：
+## Data stored
 
-- 影片 ID
-- 觀看秒數與影片總長度
-- 影片標題與頻道名稱
-- 最後更新時間
+While a video plays, the extension writes the following to the browser's local storage (`chrome.storage.local`):
 
-這些資料用於下次打開同一支影片時接續播放，以及工具列面板的記錄清單。
+- video ID
+- current playback position and total duration
+- video title and channel name
+- last updated timestamp
 
-## 資料傳輸
+This data is used to resume playback and to populate the record list in the toolbar popup.
 
-沒有。上述資料不會離開你的裝置，不會傳送到任何伺服器，也不與第三方分享。本擴充功能沒有發出任何網路請求。
+## Data transmission
 
-## 資料刪除
+None. The data stays on your device. It is not sent to any server and not shared with third parties. The extension makes no network requests.
 
-- 單筆：點工具列圖示，將游標移到記錄上，按右側的 ✕
-- 全部：點工具列圖示，按左下角「清除全部」
-- 移除擴充功能時，`chrome.storage.local` 內的資料會一併刪除
+## Deleting data
 
-## 權限說明
+- One record: open the toolbar popup, hover over a row, click the ✕ on the right
+- All records: open the toolbar popup, click 「清除全部」 at the bottom left
+- Removing the extension deletes the data in `chrome.storage.local`
 
-| 權限 | 用途 |
+## Permissions
+
+| Permission | Purpose |
 | --- | --- |
-| `storage` | 儲存觀看進度 |
+| `storage` | Store watch progress |
 
-內容腳本只在 `youtube.com` 上執行，用於讀取播放器狀態與寫入進度。
+The content script runs only on `youtube.com`, where it reads the player state and writes progress.
 
-## 變更
+## Changes
 
-本政策若有修改，會更新此檔案並在 [CHANGELOG](../CHANGELOG.md) 註明。
+If this policy changes, this file will be updated and the change noted in [CHANGELOG](CHANGELOG.md).
 
-## 聯絡
+## Contact
 
-有隱私相關問題請開 [Issue](https://github.com/xygowo/youtube-resume-helper/issues)。
+Open an [issue](https://github.com/xygowo/youtube-resume-helper/issues) for privacy questions.
 
-最後更新：2026-11-05
+Last updated: 2026-11-05
