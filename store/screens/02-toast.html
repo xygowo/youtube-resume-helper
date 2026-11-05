@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>screenshot 2</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1280px; height: 800px; overflow: hidden; position: relative;
+    background: #0a0a0d; color: #fff;
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  }
+  .glow { position: absolute; width: 1000px; height: 1000px; left: 50%; top: -560px; margin-left: -500px;
+    background: radial-gradient(circle, rgba(240,0,43,.22) 0%, rgba(240,0,43,0) 60%); }
+  .wrap { position: relative; height: 100%; display: flex; flex-direction: column;
+    align-items: center; padding: 56px 0 0; }
+  h2 { font-size: 33px; font-weight: 800; letter-spacing: -.01em; }
+  h2 em { font-style: normal; color: #ff3b4e; }
+  .sub { margin-top: 12px; font-size: 15px; color: #8f8f9c; }
+
+  .player { position: relative; width: 900px; height: 506px; margin-top: 30px;
+    border-radius: 16px; overflow: hidden; background: #05060a;
+    box-shadow: 0 40px 80px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.08); }
+  .frame { position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 620px 380px at 68% 34%, rgba(255,138,76,.34), transparent 62%),
+      radial-gradient(ellipse 520px 340px at 26% 72%, rgba(64,120,255,.28), transparent 66%),
+      linear-gradient(160deg, #10131c 0%, #070810 60%, #0b0a12 100%); }
+  .frame::after { content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,.55) 100%); }
+  .vignette { position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,.62) 0%, rgba(0,0,0,0) 26%),
+                linear-gradient(to top, rgba(0,0,0,.78) 0%, rgba(0,0,0,0) 30%); }
+  .title { position: absolute; left: 26px; top: 22px; font-size: 19px; font-weight: 600;
+    letter-spacing: .01em; text-shadow: 0 2px 10px rgba(0,0,0,.6); }
+
+  .controls { position: absolute; left: 22px; right: 22px; bottom: 20px; }
+  .track { position: relative; height: 4px; border-radius: 4px; background: rgba(255,255,255,.28); }
+  .track i { position: absolute; inset: 0 auto 0 0; width: 26%; background: #ff0033; border-radius: 4px; }
+  .track b { position: absolute; left: 26%; top: 50%; width: 13px; height: 13px; margin: -6.5px 0 0 -6.5px;
+    border-radius: 50%; background: #ff0033; box-shadow: 0 0 0 4px rgba(255,0,51,.22); }
+  .times { margin-top: 10px; display: flex; gap: 8px; align-items: center;
+    font-size: 12.5px; color: rgba(255,255,255,.72); font-variant-numeric: tabular-nums; }
+  .times span:last-child { color: rgba(255,255,255,.42); }
+
+  .toast { position: absolute; left: 22px; bottom: 74px; display: flex; align-items: center; gap: 10px;
+    background: rgba(24,24,24,.95); border: 1px solid rgba(255,255,255,.12);
+    border-radius: 10px; padding: 10px 12px; font-size: 13px; color: #f1f1f1;
+    box-shadow: 0 8px 28px rgba(0,0,0,.5); }
+  .toast b { color: #ff4e63; font-variant-numeric: tabular-nums; }
+  .toast .btn { font-size: 12px; color: #cfcfcf; padding: 4px 8px; border-radius: 6px;
+    background: rgba(255,255,255,.09); }
+  .toast .x { font-size: 12px; color: #8a8a8a; padding: 2px 4px; }
+
+  .caption { margin-top: 26px; font-size: 14.5px; color: #85858f; }
+  .caption b { color: #cfcfd8; font-weight: 600; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="wrap">
+    <h2>接續後，左下角顯示<em>上次的時間點</em></h2>
+    <p class="sub">不想接續就按「從頭播放」，該筆記錄會一併清除。</p>
+
+    <div class="player">
+      <div class="frame"></div>
+      <div class="vignette"></div>
+      <div class="title">2026 新手攝影入門：從構圖到打光</div>
+
+      <div class="toast">
+        <span>已接續上次進度 <b>12:34</b></span>
+        <span class="btn">從頭播放</span>
+        <span class="x">✕</span>
+      </div>
+
+      <div class="controls">
+        <div class="track"><i></i><b></b></div>
+        <div class="times"><span>12:34</span><span>/</span><span>48:20</span></div>
+      </div>
+    </div>
+
+    <p class="caption">記錄每 <b>2.5 秒</b>寫入一次，暫停、換片、關閉分頁時各補寫一次。</p>
+  </div>
+</body>
+</html>

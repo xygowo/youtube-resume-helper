@@ -1,0 +1,43 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: 檢查 tag 與 manifest 版本一致
+        run: |
+          node -e "
+            const v = 'v' + require('./manifest.json').version;
+            if (v !== process.env.GITHUB_REF_NAME) {
+              console.error('tag 為 ' + process.env.GITHUB_REF_NAME + '，manifest 為 ' + v);
+              process.exit(1);
+            }
+          "
+
+      - name: 執行測試
+        run: npm test
+
+      - name: 打包擴充功能
+        run: npm run build
+
+      - name: 建立 GitHub Release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" dist/*.zip \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes

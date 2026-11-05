@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <title>YouTube 續播助手</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="top">
+      <div class="brand">
+        <img src="../icons/icon48.png" alt="" width="24" height="24" />
+        <div class="titles">
+          <h1>續播助手</h1>
+          <p id="subtitle">載入中…</p>
+        </div>
+      </div>
+      <label class="switch" title="啟用 / 停用">
+        <input type="checkbox" id="enabled" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <main id="list" class="list"></main>
+
+    <div id="empty" class="empty" hidden>
+      <svg width="34" height="34" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="4" stroke="currentColor" stroke-width="1.5" />
+        <path d="M10 9.2v5.6l4.6-2.8z" fill="currentColor" />
+      </svg>
+      <p class="empty-title">還沒有觀看紀錄</p>
+      <p class="empty-hint">在 YouTube 看過影片後，進度會自動存在這台電腦上。</p>
+    </div>
+
+    <footer class="bottom">
+      <button id="clear" class="ghost">清除全部</button>
+      <span id="count" class="count"></span>
+    </footer>
+
+    <script src="popup.js"></script>
+  </body>
+</html>

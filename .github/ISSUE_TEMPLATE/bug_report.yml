@@ -1,0 +1,58 @@
+name: 問題回報
+description: 回報擴充功能沒有正常運作
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        回報前請先確認已重新載入擴充功能，並整理一次 YouTube 分頁再試一次。
+
+  - type: textarea
+    id: what
+    attributes:
+      label: 發生什麼事
+      description: 實際結果與你預期的結果
+      placeholder: |
+        實際：重新打開影片後從 0:00 開始
+        預期：從上次的 12:34 接續
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: 重現步驟
+      placeholder: |
+        1. 播放影片到 12:34
+        2. 關閉瀏覽器
+        3. 重新開啟該影片
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: 擴充功能版本
+      description: 在 chrome://extensions 的卡片上可以看到
+      placeholder: 1.0.0
+    validations:
+      required: true
+
+  - type: input
+    id: browser
+    attributes:
+      label: 瀏覽器與版本
+      placeholder: Chrome 130 / Edge 130
+    validations:
+      required: true
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: 影響範圍
+      options:
+        - 每次都會發生
+        - 偶爾發生
+        - 只發生在特定影片
+    validations:
+      required: false

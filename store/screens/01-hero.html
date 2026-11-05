@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<title>screenshot 1</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1280px; height: 800px; overflow: hidden; position: relative;
+    background: #0a0a0d; color: #fff;
+    font-family: "Microsoft JhengHei", "PingFang TC", "Noto Sans TC", system-ui, sans-serif;
+  }
+  .glow { position: absolute; width: 900px; height: 900px; right: -240px; top: -340px;
+    background: radial-gradient(circle, rgba(240,0,43,.32) 0%, rgba(240,0,43,0) 62%); }
+  .glow.left { left: -320px; right: auto; bottom: -420px; top: auto; width: 820px; height: 820px;
+    background: radial-gradient(circle, rgba(86,72,255,.14) 0%, rgba(86,72,255,0) 66%); }
+  .mesh { position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,.028) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,.028) 1px, transparent 1px);
+    background-size: 64px 64px; }
+  .wrap { position: relative; height: 100%; display: flex; align-items: center; gap: 54px; padding: 0 78px; }
+  .copy { width: 596px; flex: none; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px;
+    letter-spacing: .14em; color: #ff6b7d; font-weight: 700; }
+  .eyebrow::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #ff3b4e; }
+  h1 { font-size: 58px; line-height: 1.18; margin-top: 22px; letter-spacing: -.02em; font-weight: 800; }
+  h1 span { color: #ff3b4e; }
+  .lead { margin-top: 26px; width: 520px; font-size: 16.5px; line-height: 1.95; color: #9b9ba8; }
+  ul { margin-top: 30px; display: flex; flex-direction: column; gap: 13px; }
+  li { list-style: none; display: flex; align-items: center; gap: 11px; font-size: 14.5px; color: #cdcdd6; }
+  li::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: #ff3b4e; flex: none; }
+  .shot { flex: 1; display: flex; justify-content: center; align-items: center; }
+  .shot img { width: 384px; display: block; border-radius: 14px;
+    box-shadow: 0 42px 90px rgba(0,0,0,.7), 0 0 0 1px rgba(255,255,255,.09); }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="glow left"></div>
+  <div class="mesh"></div>
+  <div class="wrap">
+    <div class="copy">
+      <div class="eyebrow">CHROME / EDGE 擴充功能</div>
+      <h1>關掉瀏覽器，<br><span>進度還在。</span></h1>
+      <p class="lead">YouTube 還原的是網址，不是你看的時間。這支擴充功能把觀看進度存在瀏覽器本機，重新打開影片就接回原處。</p>
+      <ul>
+        <li>每 2.5 秒記錄一次，暫停與換片時補寫</li>
+        <li>重新打開自動接續，可選擇從頭播放</li>
+        <li>記錄留在本機，不上傳</li>
+      </ul>
+    </div>
+    <div class="shot"><img src="../tmp/popup.png" alt=""></div>
+  </div>
+</body>
+</html>

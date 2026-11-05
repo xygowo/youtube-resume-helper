@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube 續播助手",
+  "short_name": "續播助手",
+  "version": "1.0.0",
+  "description": "自動記錄 YouTube 觀看進度，重新打開影片時接續上次的時間點。紀錄只存在本機。",
+  "homepage_url": "https://github.com/xygowo/youtube-resume-helper",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "YouTube 續播助手",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*", "https://m.youtube.com/*"],
+      "js": ["content/content.js"],
+      "run_at": "document_idle",
+      "all_frames": false
+    }
+  ]
+}
