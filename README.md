@@ -25,7 +25,7 @@ This extension stores `videoId → seconds` in `chrome.storage.local`. It does n
 - Clears the record when you stop within 20 seconds of the end
 - Defers to `t=` / `start=` when the URL already carries a timestamp
 - Aborts the resume as soon as you interact with the player
-- Interface and extension name follow the browser language (English and Traditional Chinese included)
+- Interface and extension name follow the browser language (English, Traditional Chinese, and Simplified Chinese)
 - Toggle in the popup to pause recording
 
 ## Install
