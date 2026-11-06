@@ -1,5 +1,8 @@
 # Chrome Web Store 上架資料
 
+狀態：**已上架**
+https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc
+
 上傳檔：`dist/youtube-resume-helper-<version>.zip`（執行 `npm run build` 產生）
 開發者帳號：需要先付一次 5 美元的註冊費，並完成帳號驗證。
 

@@ -7,6 +7,7 @@ Chrome / Edge extension that keeps YouTube watch progress in the browser's local
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Chrome](https://img.shields.io/badge/chrome-88%2B-4285F4?style=flat-square)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-install-4285F4?logo=googlechrome&logoColor=white&style=flat-square)](https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc)
 
 English · [繁體中文](README.zh-TW.md) · [简体中文](README.zh-CN.md)
 
@@ -41,7 +42,7 @@ After editing files, click the reload icon on the extension card, then refresh a
 
 ### From the Chrome Web Store
 
-Link to be added once the listing is live.
+[Install from the Chrome Web Store](https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc)
 
 ## How it works
 

@@ -7,6 +7,7 @@ Chrome / Edge 扩展程序。把 YouTube 观看进度存在浏览器本地，重
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Chrome](https://img.shields.io/badge/chrome-88%2B-4285F4?style=flat-square)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-install-4285F4?logo=googlechrome&logoColor=white&style=flat-square)](https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc)
 
 [English](README.md) · [繁體中文](README.zh-TW.md) · 简体中文
 
@@ -41,7 +42,7 @@ Chrome / Edge 扩展程序。把 YouTube 观看进度存在浏览器本地，重
 
 ### 从商店安装
 
-Chrome 应用商店上架后补上链接。
+[Chrome 应用商店](https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc)
 
 ## 运作方式
 

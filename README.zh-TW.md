@@ -7,6 +7,7 @@ Chrome / Edge 擴充功能。把 YouTube 觀看進度存在瀏覽器本機，重
 ![License](https://img.shields.io/badge/license-MIT-blue?style=flat-square)
 ![Chrome](https://img.shields.io/badge/chrome-88%2B-4285F4?style=flat-square)
 ![Dependencies](https://img.shields.io/badge/dependencies-0-brightgreen?style=flat-square)
+[![Chrome Web Store](https://img.shields.io/badge/Chrome%20Web%20Store-install-4285F4?logo=googlechrome&logoColor=white&style=flat-square)](https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc)
 
 [English](README.md) · 繁體中文 · [简体中文](README.zh-CN.md)
 
@@ -41,7 +42,7 @@ Chrome / Edge 擴充功能。把 YouTube 觀看進度存在瀏覽器本機，重
 
 ### 從商店安裝
 
-Chrome Web Store 上架後補上連結。
+[Chrome 線上應用程式商店](https://chromewebstore.google.com/detail/inkalmgdcacaphjembloclimjaekkccc)
 
 ## 運作方式
 
